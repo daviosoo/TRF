@@ -1,0 +1,46 @@
+.NavContainer{
+    width: 100vw;
+
+    padding: 1rem 11rem;
+
+    background-color: #FFFBFE;
+
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.NavLogo{
+    font-size: 3rem;
+    font-weight: 700;
+
+    text-decoration: none;
+    letter-spacing: -.25rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #121212;
+}
+
+.NavLogo:hover{
+    color: #474545;
+}
+
+.btnLogin{
+    width: 11rem;
+    height: 3rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 0;
+
+    text-align: center;
+}
+
+.btn-dark:hover{
+    background-color: #474545;
+}
