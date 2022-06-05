@@ -1,0 +1,22 @@
+.BannerContainer{
+    width: 100vw;
+    height: 415px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-image: url("./../../../Shared/img/BannerBG.jpeg");
+    background-position: 0px 0px;
+    background-size: 960px;
+}
+
+.BannerText{
+    font-size: 3.5rem;
+
+    color: #FFFBFE;
+}
+
+.BannerTextContainer{
+    width: 60%;
+}

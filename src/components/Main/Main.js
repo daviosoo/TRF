@@ -1,8 +1,16 @@
+import Banner from './Banner/Banner'
+import About from './About/About'
+import Solutions from './Solutions/Solutions'
+import Footer from '../Footer/Footer'
+
 function Main() 
 {
     return(
         <div>
-            <h1>Main page</h1>
+            <Banner BannerText="Our mission is to design software to make work life simpler" />
+            <About />
+            <Solutions />
+            <Footer />
         </div>
     )
 }

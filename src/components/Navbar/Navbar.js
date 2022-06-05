@@ -8,7 +8,7 @@ import {
 
 } from 'react-router-dom'
 
-import Login from '../Login/Login'
+import Join from '../Join/Join'
 import Main from '../Main/Main'
 
 function Navbar()
@@ -23,7 +23,7 @@ function Navbar()
                     <Link to='/' className='NavLogo'>The Running Fox</Link>
 
                     <div className='LinksContainer'>
-                        <Link to='/Login' className='btn btnLogin btn-dark my-3'>LOG IN</Link>
+                        <Link to='/Join' className='btn btnLogin btn-dark my-3'>JOIN US</Link>
                     </div>
 
                 </div>
@@ -31,7 +31,7 @@ function Navbar()
                 <Routes>
 
                     <Route path='/' element={<Main />}></Route>
-                    <Route exact path='/Login' element={<Login />}></Route>
+                    <Route path='/Join' element={<Join />}></Route>
 
                 </Routes>
             </Router>

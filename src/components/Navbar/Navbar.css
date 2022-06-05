@@ -1,7 +1,7 @@
 .NavContainer{
     width: 100vw;
 
-    padding: 1rem 11rem;
+    padding: .8rem 11rem;
 
     background-color: #FFFBFE;
 
@@ -11,7 +11,7 @@
 }
 
 .NavLogo{
-    font-size: 3rem;
+    font-size: 2.7rem;
     font-weight: 700;
 
     text-decoration: none;

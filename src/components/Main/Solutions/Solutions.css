@@ -1,0 +1,67 @@
+.SolutionsContainer{
+    width: 100vw;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 5rem;
+
+    background-color: #F0F0F0;
+
+    text-align: center;
+}
+
+.SolutionsContainer h1{
+    color: #23286b;
+
+    letter-spacing: -.1rem;
+}
+
+.SolutionsServicesContainer{
+    width: 80%;
+
+    margin-top: 5rem;
+    margin-bottom: 5.5rem;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+.SolutionsServicesContainer a{
+    width: 350px;
+    height: 300px;
+
+    padding: 3rem 1.5rem;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    background: white;
+    border-radius: .5rem;
+
+    font-size: 1.1rem;
+
+    text-decoration: none;
+    color: #121212;
+    box-shadow: -1px 10px 44px -33px rgba(0, 0, 0, 0.55);
+
+    transition: all .5s;
+}
+
+.SolutionsServicesContainer a:last-child img{
+    width: 50%;
+}
+
+.SolutionsServicesContainer a:hover {
+    transform: translateY(-10px);
+}
+
+.SolutionsServicesContainer a img{
+    width: 80%;
+}
