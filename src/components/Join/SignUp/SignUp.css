@@ -1,0 +1,29 @@
+.SignUpContainer{
+    width: 100vw;
+    height: 85vh;
+
+    background: url('../../../Shared/img/JoinBG.png') #fff no-repeat fixed;
+    background-size: cover;
+}
+
+.SignUpContainer h1{
+    font-family: 'Exo', sans-serif;
+    font-weight: 400;
+    letter-spacing: -.1rem;
+
+    color: #121212;
+}
+
+.btnSignUp{
+    padding: .4rem 3rem;
+
+    color: #121212;
+    border-color: #121212;
+
+    transition: all .3s;
+}
+
+.btnSignUp:hover{
+    color: white;
+    background-color:#121212;
+}

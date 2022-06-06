@@ -1,0 +1,54 @@
+.JoinContainer{
+    width: 100vw;
+    height: 80vh;
+
+    padding-left: 8rem;
+    padding-right: 8rem;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    background: url('../../Shared/img/JoinBG.png') #fff no-repeat fixed;
+    background-size: cover;
+}
+
+.JoinContainer h1{
+    text-align: justify;
+
+    font-size: 6.5rem;
+    letter-spacing: -.5rem;
+    font-family: 'Exo', sans-serif;
+    font-weight: 300;
+
+    color: #23286b;
+
+}
+
+.JoinLinksContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnJoin{
+    width: 22rem;
+    height: 3.5rem;
+
+    border-radius: 0 1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-color: #23286b;
+    color: #23286b;
+
+    transition: all .2s ease-out;
+}
+
+.btnJoin:hover{
+    background-color: #23286b;
+    color: white;
+}
