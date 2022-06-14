@@ -12,7 +12,7 @@ import Join from '../Join/Join'
 import Main from '../Main/Main'
 
 import SignUp from '../Join/SignUp/SignUp'
-import LogIn from '../Join/LogIn/LogIn'
+import Newtwork from '../Join/Newtwork/Newtwork'
 
 function Navbar()
 {
@@ -35,7 +35,7 @@ function Navbar()
 
                     <Route path='/' element={<Main />}></Route>
                     <Route path='/Join' element={<Join />}></Route>
-                    <Route path='/Join/LogIn' element={<LogIn />}></Route>
+                    <Route path='/Join/Newtwork' element={<Newtwork />}></Route>
                     <Route path='/Join/SignUp' element={<SignUp />}></Route>
 
                 </Routes>

@@ -1,15 +1,76 @@
 import './SignUp.css'
 import Fox from '../../../Shared/img/BalcWolfIMG.png'
 
-const handleSubmit = ( event ) => {
-    
-    alert('Works')
-    event.preventDefault();
+import { useForm } from "react-hook-form";
+import { useState } from "react"
 
-}
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function SignUp()
 {
+    const [ user , setUser] = useState({
+        username: '',
+        name: '',
+        surname: '',
+        email: '',
+        country: '',
+        password: '',
+    })
+
+    const { register, handleSubmit, reset ,formState: { errors } } = useForm()
+    const onSubmit = () => insertUser()
+
+    const notifySucces = () => {
+        toast.success('Usuario creado correctamente', {
+            position: "bottom-right",
+            autoClose: 4000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+        })
+        reset()
+    }
+
+    const notifyError = () => toast.warning('Usuario ya existente', {
+        position: "bottom-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+    }) 
+
+    const insertUser = () => {
+
+        const uri = 'http://localhost/TRF-API/insertUser.php'
+
+        const params = {
+
+            method: 'POST',
+            body: JSON.stringify({
+                username: user.username,
+                name: user.name,
+                surname: user.surname,
+                email: user.email,
+                country: user.country,
+                password: user.password
+            }),
+            headers: {
+                "Content-type": 'application/json',
+            },
+        }
+
+        fetch(uri, params)
+            .then((res) => res.json())
+            .then((data) => data === 'Usuario creado correctamente' ? notifySucces() : notifyError())
+            .catch((err) => console.log(err))
+
+    }
+
     return(
 
         <div className="SignUpContainer container-fluid">
@@ -17,34 +78,53 @@ function SignUp()
             <div className="row py-5 px-5 justify-content-evenly align-items-center">
 
                 <div className="col-5">
-
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={ handleSubmit( onSubmit ) }>
                         <h1 className="my-4">SIGN UP</h1>
-                        <div class="row mb-3">
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="First name"/>
+                        <div className="row mb-3">
+                            <div className="col">
+                                <input type="text" className="form-control" placeholder="First name" name='name' {...register('name', { required: true, minLength: 4, onChange: (e) => { setUser({ ...user, name: e.target.value})} })}/>
+                                {errors.firstName && (<span className='validationSpan'>This field is required <br /> </span>)}
+                                {errors.firstName && (<span className='validationSpan'>More than 4 char</span>)}
                             </div>
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Last name"/>
+                            <div className="col">
+                                <input type="text" className="form-control" placeholder="Last name" name='surname' {...register('surname', { required: true, minLength: 4, onChange: (e) => setUser({ ...user, surname: e.target.value }) })}/>
+                                {errors.lastName && (<span className='validationSpan'>This field is required <br /> </span>)}
+                                {errors.lastName && (<span className='validationSpan'>More than 4 char</span>)}
                             </div>
                         </div>
                         <div className='row mb-3'>
-                            <div class="input-group flex-nowrap">
-                                <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-at"></i></span>
-                                <input type="text" class="form-control" placeholder="Email"/>
+                            <div>
+                                <div className='input-group flex-nowrap'>
+                                    <span className="input-group-text" id="addon-wrapping"><i className="fa-solid fa-at"></i></span>
+                                    <input type="text" className="form-control" placeholder="Email" name='email' {...register('email', { required: true, pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, onChange: (e) => setUser({ ...user, email: e.target.value }) })}/>
+                                </div>
+                                <div className='row justify-content-center align-items-center'>
+                                    <div className='col-12'>
+                                        {errors.email && (<span className='validationSpan'>This field is required <br /> </span>)}
+                                        {errors.email && (<span className='validationSpan'>Invalid field <br /> </span>)}
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                         <div className='row mb-3'>
                             <div className='col'>
-                                <div class="input-group flex-nowrap">
-                                    <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-user"></i></span>
-                                    <input type="text" class="form-control" placeholder="Username" />
+                                <div>
+                                    <div className="input-group flex-nowrap">
+                                        <span className="input-group-text" id="addon-wrapping"><i className="fa-solid fa-user"></i></span>
+                                        <input type="text" className="form-control" placeholder="Username" name='username' {...register('username', { required: true, minLength: 6, onChange: (e) => setUser({ ...user, username: e.target.value }) })}/>
+                                    </div>
+                                    <div className='row justify-content-center align-items-center'>
+                                        <div className='col-12'>
+                                            {errors.username && (<span className='validationSpan'>This field is required <br /> </span>)}
+                                            {errors.username && (<span className='validationSpan'>More than 6 char <br /> </span>)}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div className='col'>
-                                <select class="form-select">
-                                    <option selected>Country</option>
-                                    <option value="1">Colombia</option>
+                                <select className="form-select" name='country' {...register('country', { onChange: (e) => setUser({...user, country: e.target.value })})}>
+                                    <option defaultValue="1">Colombia</option>
                                     <option value="2">United States</option>
                                     <option value="3">Mexico</option>
                                 </select>
@@ -52,13 +132,21 @@ function SignUp()
                         </div>
                         <div className='row mb-3'>
                             <div className='col'>
-                                <div class="input-group flex-nowrap">
-                                    <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-lock"></i></span>
-                                    <input type="password" class="form-control" placeholder="Password" />
+                                <div>
+                                    <div className="input-group flex-nowrap">
+                                        <span className="input-group-text" id="addon-wrapping"><i className="fa-solid fa-lock"></i></span>
+                                        <input type="password" className="form-control" placeholder="Password" name='password' {...register('password', { required: true, minLength: 8, onChange: (e) => setUser({...user, password: e.target.value }) })}/>
+                                    </div>
+                                </div>
+                                <div className='row justify-content-center align-items-center'>
+                                    <div className='col-12'>
+                                        {errors.password && (<span className='validationSpan'>This field is required <br /> </span>)}
+                                        {errors.password && (<span className='validationSpan'>More than 8 char <br /> </span>)}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btnSignUp mt-3">Submit</button>
+                        <button type="submit" className="btn btnSignUp mt-3">Submit</button>
                     </form>
 
                 </div>
@@ -68,7 +156,8 @@ function SignUp()
                 </div>
 
             </div>
-            
+
+            <ToastContainer />
         </div>
 
     )

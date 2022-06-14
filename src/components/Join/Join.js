@@ -13,7 +13,7 @@ function Join()
                     </div>
                     <div className="col-4 JoinLinksContainer">
                         <Link to="/Join/SignUp" className='btn btnJoin my-3'>SIGN UP</Link>
-                        <Link to="/Join/LogIn" className='btn btnJoin my-3'>LOG IN</Link>
+                        <Link to="/Join/Newtwork" className='btn btnJoin my-3'>NETWORK</Link>
                     </div>
                 </div>
             </div>
