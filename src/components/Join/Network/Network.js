@@ -61,7 +61,7 @@ function Newtwork() {
     if (users) {
         return (
             <div>
-                <h1>Users List</h1>
+                <h1 className="mb-4">Users List</h1>
                 <UsersList Users={users} />
             </div>
         )
@@ -69,7 +69,7 @@ function Newtwork() {
     else {
         return (
             <div>
-                <h1>Users List</h1>
+                <h1 className="mb-4">Users List</h1>
                 <h3> There is no users in our network</h3>
             </div>
         )
