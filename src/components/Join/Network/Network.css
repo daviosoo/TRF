@@ -1,0 +1,7 @@
+.deleteUser{
+    color: #E3E0DF;
+    cursor: pointer;
+}
+.deleteUser:hover {
+    color: #ED370F;
+}

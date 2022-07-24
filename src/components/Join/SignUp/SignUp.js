@@ -18,8 +18,18 @@ function SignUp()
         password: '',
     })
 
+    const validateUser = () => {
+
+        const available = user.username !== '' && user.name !== '' && user.surname !== '' && user.email !== '' && user.password !== '' 
+        
+        if (available) return true
+        if (!available) return false
+        
+    }
+
     const { register, handleSubmit, reset ,formState: { errors } } = useForm()
-    const onSubmit = () => insertUser()
+
+    const onSubmit = () => validateUser() ? insertUser() : false
 
     const notifySucces = () => {
         toast.success('Usuario creado correctamente', {
@@ -46,7 +56,7 @@ function SignUp()
 
     const insertUser = () => {
 
-        const uri = 'http://localhost/TRF-API/insertUser.php'
+        const uri = 'https://trfapi.000webhostapp.com/insertUser.php'
 
         const params = {
 
@@ -56,12 +66,12 @@ function SignUp()
                 name: user.name,
                 surname: user.surname,
                 email: user.email,
-                country: user.country,
+                country: user.country ? user.country : "Colombia",
                 password: user.password
             }),
-            headers: {
+     /*        headers: {
                 "Content-type": 'application/json',
-            },
+            }, */
         }
 
         fetch(uri, params)
