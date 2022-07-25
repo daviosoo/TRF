@@ -32,7 +32,7 @@ function SignUp()
     const onSubmit = () => validateUser() ? insertUser() : false
 
     const notifySucces = () => {
-        toast.success('Usuario creado correctamente', {
+        toast.success('User created successfully', {
             position: "bottom-right",
             autoClose: 4000,
             hideProgressBar: false,
@@ -44,7 +44,7 @@ function SignUp()
         reset()
     }
 
-    const notifyError = () => toast.warning('Usuario ya existente', {
+    const notifyError = () => toast.warning('Existing user', {
         position: "bottom-right",
         autoClose: 4000,
         hideProgressBar: false,
@@ -69,9 +69,6 @@ function SignUp()
                 country: user.country ? user.country : "Colombia",
                 password: user.password
             }),
-     /*        headers: {
-                "Content-type": 'application/json',
-            }, */
         }
 
         fetch(uri, params)
@@ -93,13 +90,13 @@ function SignUp()
                         <div className="row mb-3">
                             <div className="col">
                                 <input type="text" className="form-control" placeholder="First name" name='name' {...register('name', { required: true, minLength: 4, onChange: (e) => { setUser({ ...user, name: e.target.value})} })}/>
-                                {errors.firstName && (<span className='validationSpan'>This field is required <br /> </span>)}
-                                {errors.firstName && (<span className='validationSpan'>More than 4 char</span>)}
+                                {errors.name && (<span className='validationSpan'>This field is required <br /> </span>)}
+                                {errors.name && (<span className='validationSpan'>More than 4 char</span>)}
                             </div>
                             <div className="col">
                                 <input type="text" className="form-control" placeholder="Last name" name='surname' {...register('surname', { required: true, minLength: 4, onChange: (e) => setUser({ ...user, surname: e.target.value }) })}/>
-                                {errors.lastName && (<span className='validationSpan'>This field is required <br /> </span>)}
-                                {errors.lastName && (<span className='validationSpan'>More than 4 char</span>)}
+                                {errors.surname && (<span className='validationSpan'>This field is required <br /> </span>)}
+                                {errors.surname && (<span className='validationSpan'>More than 4 char</span>)}
                             </div>
                         </div>
                         <div className='row mb-3'>

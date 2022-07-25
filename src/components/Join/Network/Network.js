@@ -1,3 +1,4 @@
+import './Network.css'
 import { useState } from "react"
 import { useLayoutEffect } from "react"
 
@@ -61,7 +62,7 @@ function Newtwork() {
     if (users) {
         return (
             <div>
-                <h1 className="mb-4">Users List</h1>
+                <h1 className="mb-4 usersTitle">Users List</h1>
                 <UsersList Users={users} />
             </div>
         )
@@ -69,8 +70,8 @@ function Newtwork() {
     else {
         return (
             <div>
-                <h1 className="mb-4">Users List</h1>
-                <h3> There is no users in our network</h3>
+                <h1 className="mb-4 usersTitle">Users List</h1>
+                <h3> There are no users in our network</h3>
             </div>
         )
     }

@@ -1,3 +1,7 @@
+:root{
+    overflow-x: hidden;
+}
+
 .NavContainer{
     width: 100vw;
 
