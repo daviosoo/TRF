@@ -1,0 +1,48 @@
+form label{
+    font-size: 1.2rem;
+
+    color: #23286b;
+}
+
+.inputForm{
+    border-radius: 0;
+}
+
+textarea{
+    height: 9rem;
+}
+
+.formTitle{
+    font-size: 2.7rem;
+    letter-spacing: -.1rem;
+    font-family: 'Exo', sans-serif;
+    
+    color: #23286b;
+}
+
+#btnSend{
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    
+    background-color: #121212;
+    
+    border-radius: 0;
+    
+    padding: .8rem;
+}
+
+#btnSend:hover{
+    background-color: #474545;
+}
+
+.subTitle{
+    color: #23286b;
+
+    font-size: .8rem;
+
+    font-family: 'DM Sans', sans-serif;
+}
+
+.textInfo{
+    color: #bfbdbd;
+}

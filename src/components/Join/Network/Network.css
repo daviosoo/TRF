@@ -1,7 +1,7 @@
-.deleteUser{
-    color: #E3E0DF;
-    cursor: pointer;
-}
-.deleteUser:hover {
-    color: #ED370F;
+.usersTitle{
+    font-size: 2.7rem;
+    letter-spacing: -.1rem;
+    font-family: 'Exo', sans-serif;
+
+    color: #23286b;
 }
